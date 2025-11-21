@@ -2,7 +2,15 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-const experience = [
+interface ExperienceItem {
+  company: string;
+  role: string;
+  period: string;
+  description: string[];
+  tech: string[];
+}
+
+const experience: ExperienceItem[] = [
   {
     company: "Hello Zelo",
     role: "Software Engineer",
@@ -10,9 +18,9 @@ const experience = [
     description: [
       "Centralized chat state management in Next.js frontend enabling seamless tab transitions without losing context.",
       "Developed a Gmail connector in FastAPI that dynamically adds incoming emails into the knowledge base via webhooks.",
-      "Added automated knowledge-refresh functionality for Google Drive, Play Store, and Intercom connectors."
+      "Added automated knowledge-refresh functionality for Google Drive, Play Store, and Intercom connectors.",
     ],
-    tech: ["Next.js", "FastAPI", "Tailwind", "PostgreSQL", "Qdrant"]
+    tech: ["Next.js", "FastAPI", "Tailwind", "PostgreSQL", "Qdrant"],
   },
   {
     company: "AI Stealth Startup",
@@ -20,10 +28,10 @@ const experience = [
     period: "June 2024 – July 2024",
     description: [
       "Designed and deployed a high-performance real-time chat system for 50+ users using WebSockets and Supabase.",
-      "Refactored Gmail parser with OOP principles, improving email ingestion speed by 50% and reducing LLM token cost by 30%."
+      "Refactored Gmail parser with OOP principles, improving email ingestion speed by 50% and reducing LLM token cost by 30%.",
     ],
-    tech: ["Next.js", "FastAPI", "Tailwind", "Supabase", "Sentry", "LangSmith"]
-  }
+    tech: ["Next.js", "FastAPI", "Tailwind", "Supabase", "Sentry", "LangSmith"],
+  },
 ];
 
 export default function Experience() {
@@ -36,7 +44,9 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Work Experience</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4">
+            Work Experience
+          </h2>
           <div className="h-1 w-20 bg-zinc-800"></div>
         </motion.div>
 
@@ -59,8 +69,15 @@ export default function Experience() {
               <Card className="w-full md:w-[calc(50%-2.5rem)] ml-12 md:ml-0 border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                    <CardTitle className="text-xl font-bold text-white">{job.role}</CardTitle>
-                    <Badge variant="secondary" className="w-fit font-mono text-xs">{job.period}</Badge>
+                    <CardTitle className="text-xl font-bold text-white">
+                      {job.role}
+                    </CardTitle>
+                    <Badge
+                      variant="secondary"
+                      className="w-fit font-mono text-xs"
+                    >
+                      {job.period}
+                    </Badge>
                   </div>
                   <p className="text-zinc-400 font-medium">{job.company}</p>
                 </CardHeader>
@@ -72,7 +89,11 @@ export default function Experience() {
                   </ul>
                   <div className="flex flex-wrap gap-2">
                     {job.tech.map((tech) => (
-                      <Badge key={tech} variant="outline" className="border-zinc-800 text-zinc-500 hover:text-zinc-300 hover:border-zinc-700 bg-transparent text-xs">
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="border-zinc-800 text-zinc-500 hover:text-zinc-300 hover:border-zinc-700 bg-transparent text-xs"
+                      >
                         {tech}
                       </Badge>
                     ))}

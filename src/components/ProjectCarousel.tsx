@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import {
@@ -10,21 +10,21 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  ExternalLink,
-  ChevronLeft,
-  ChevronRight,
-  Github as GithubIcon,
-} from "lucide-react";
-import { getPinnedRepos } from "@/lib/github";
-
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { GithubIcon } from "@/components/icons";
 
 const staticProjects = [
   {
     name: "LeetCode AI Assistant",
     description:
       "Chrome extension that enhances LeetCode with AI-powered assistance. Get instant problem explanations, code solutions in multiple languages, and debugging help with real-time streaming responses using Gemini Flash.",
-    topics: ["Chrome Extension", "React", "TypeScript", "Gemini API", "Tailwind CSS"],
+    topics: [
+      "Chrome Extension",
+      "React",
+      "TypeScript",
+      "Gemini API",
+      "Tailwind CSS",
+    ],
     html_url: "https://github.com/Ritikchauhan1704/leetcodeAIAssistant",
     homepage: null,
     stargazers_count: 0,
@@ -44,7 +44,15 @@ const staticProjects = [
     name: "Unified LLM",
     description:
       "TypeScript package providing a unified interface for multiple LLM providers (OpenAI, Anthropic, Gemini, Groq). Features agent framework with tool support, LangGraph workflows, type-safe tools with Zod, and streaming capabilities.",
-    topics: ["TypeScript", "LLM", "Agents", "OpenAI", "Anthropic", "Gemini", "Zod"],
+    topics: [
+      "TypeScript",
+      "LLM",
+      "Agents",
+      "OpenAI",
+      "Anthropic",
+      "Gemini",
+      "Zod",
+    ],
     html_url: "https://github.com/Ritikchauhan1704/Unified-LLm",
     homepage: "https://www.npmjs.com/package/unified-llm",
     stargazers_count: 0,
@@ -83,11 +91,10 @@ interface Project {
 }
 
 export default function ProjectCarousel() {
-  const [projects, setProjects] = useState<Project[]>(staticProjects);
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
-  
+  const projects: Project[] = staticProjects;
 
-  // This doesn't look good for now 
+  // this doesnt look good right now, using static projects for now
   // useEffect(() => {
   //   const fetchProjects = async () => {
   //     try {
@@ -152,10 +159,10 @@ export default function ProjectCarousel() {
 
         <div className="overflow-hidden -mx-6 px-6 py-4" ref={emblaRef}>
           <div className="flex gap-6 touch-pan-y">
-            {projects.map((project, index) => (
+            {staticProjects.map((project, index) => (
               <div
                 className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 first:pl-0"
-                key={index}
+                key={project.html_url ?? project.name ?? index}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

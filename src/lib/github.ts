@@ -26,11 +26,11 @@ export async function getPinnedRepos(username: string): Promise<GitHubRepo[]> {
       per_page: 100,
     });
 
-    // Filter out forks and sort by stars
+    // Filter out forks and sort by stars, then take top 6
     const ownRepos = repos
       .filter((repo) => !repo.fork)
       .sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0))
-      
+      .slice(0, 6);
 
     // Fetch topics for each repo (topics require a separate API call)
     const reposWithTopics = await Promise.all(

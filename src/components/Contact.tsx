@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Mail, FileText, Terminal } from "lucide-react";
-import { SVGProps } from "react";
-
-type IconSvgProps = SVGProps<SVGSVGElement> & {
-  size?: number | string;
-};
-
 
 export default function Contact() {
   return (
@@ -54,7 +48,6 @@ export default function Contact() {
               </a>
             </Button>
           </div>
-
         </motion.div>
       </div>
     </section>
