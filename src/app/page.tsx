@@ -1,9 +1,9 @@
 "use client"
-import Hero from "@/components/sections/Hero";
-import Experience from "@/components/sections/Experience";
-import ProjectCarousel from "@/components/sections/ProjectCarousel";
-import Skills from "@/components/sections/Skills";
-import Contact from "@/components/sections/Contact";
+import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import ProjectCarousel from "@/components/ProjectCarousel";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Home() {
