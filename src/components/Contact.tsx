@@ -28,7 +28,12 @@ export default function Contact() {
               size="lg"
               className="bg-white text-black hover:bg-zinc-200"
             >
-              <a href="mailto:critik1704@gmail.com">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=critik1704@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="link-email"
+              >
                 <Mail className="mr-2 h-4 w-4" />
                 Say Hello
               </a>

@@ -69,20 +69,6 @@ export default function Hero() {
                 LinkedIn
               </a>
             </Button>
-            <Button
-              asChild
-              className="h-12 px-6 bg-white text-black hover:bg-zinc-200 transition-all font-medium"
-            >
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=critik1704@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="link-email"
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                Contact Me
-              </a>
-            </Button>
           </div>
         </motion.div>
 
